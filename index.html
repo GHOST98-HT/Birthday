@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💘 Happy Birthday, Love! 💘</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffeaf0, #ffdde8);
+      font-family: 'Segoe UI', sans-serif;
+      color: #7b7eeb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card {
+      background: #fcf4e8;
+      border: 3px dashed #ff4d88;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+      padding: 30px 40px;
+      border-radius: 20px;
+      max-width: 450px;
+      animation: floatCard 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      color: #ff4d88;
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #990033;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #ff6699;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #ff3366;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d88;
+      transform: rotate(45deg);
+      animation: burst 1.5s ease-out forwards;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d88;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes burst {
+      0% { transform: scale(0.5) rotate(45deg); opacity: 1; }
+      100% { transform: scale(2.5) translateY(-100px) rotate(45deg); opacity: 0; }
+    }
+
+    #wish {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #cc0052;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>❤️ Happy Birthday, My Kismis
+         ❤️</h1>
+    <p>Here's a little magic just for you... 💫 😅💖</p>
+    <button onclick="showWish()">💌 Open My Heart</button>
+    <div id="wish">You're officially older, hotter, and 200% cuter today! 😘<br>
+    I love you more than Mango... and that’s serious.❤️
+     Once angin happy Birthday.I am so lucky that I get to say I know you. And even luckier that I get to love you. </div>
+  </div>
+
+  <script>
+    function showWish() {
+      const wish = document.getElementById("wish");
+      wish.style.opacity = 1;
+      explodeHearts(30);
+    }
+
+    function explodeHearts(count) {
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = (window.innerHeight / 2) + 'px';
+        heart.style.backgroundColor = getRandomHeartColor();
+        heart.style.animationDuration = (1 + Math.random() * 1.5) + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2000);
+      }
+    }
+
+    function getRandomHeartColor() {
+      const colors = ['#ff4d88', '#ff6699', '#ff99bb', '#ff3366', '#cc0052'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
